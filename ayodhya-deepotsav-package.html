@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7VJS6GPWL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C7VJS6GPWL');
+  gtag('config', 'AW-10949316876');
+</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Ayodhya Deepotsav 2026 Tour Package from Rs 5,999 | Stay + Darshan | Aadvik Residency</title>
@@ -698,24 +707,16 @@ footer p{margin-bottom:.5rem;line-height:1.6}
 /* ============ CONFIG: fill these before running ads ============ */
 var CFG = {
   waNumber: '919956860590',
-  adsId: '',            // Google Ads tag, e.g. 'AW-1234567890'
-  adsCallLabel: '',     // conversion label for call clicks, e.g. 'AbC-D_efG'
-  adsWaLabel: '',       // conversion label for WhatsApp clicks
-  adsLeadLabel: '',     // conversion label for form submit
+  adsId: 'AW-10949316876',                 // Google Ads account (tag already loaded in <head>)
+  adsCallLabel: 'NtY8CJjOydgYEIyiheUo',    // "Call Us Button" conversion
+  adsWaLabel: 'NtY8CJjOydgYEIyiheUo',  // WhatsApp clicks also count under the same conversion
+  adsLeadLabel: '',     // add the label of your form-submit conversion when you create it
   metaPixelId: '',      // Meta Pixel ID, e.g. '123456789012345'
   leadEndpoint: ''      // Google Apps Script web app URL (see lead-capture-apps-script.gs)
 };
 
 (function(){
   /* ---- load tags only if IDs are set ---- */
-  if (CFG.adsId) {
-    var g = document.createElement('script'); g.async = true;
-    g.src = 'https://www.googletagmanager.com/gtag/js?id=' + CFG.adsId;
-    document.head.appendChild(g);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function(){ dataLayer.push(arguments); };
-    gtag('js', new Date()); gtag('config', CFG.adsId);
-  }
   if (CFG.metaPixelId) {
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', CFG.metaPixelId); fbq('track', 'PageView');
@@ -733,10 +734,10 @@ var CFG = {
   /* ---- conversion tracking ---- */
   function track(kind){
     try {
-      if (window.gtag && CFG.adsId) {
+      if (window.gtag) {
         var label = kind === 'call' ? CFG.adsCallLabel : (kind === 'lead' ? CFG.adsLeadLabel : CFG.adsWaLabel);
         if (label) gtag('event', 'conversion', {send_to: CFG.adsId + '/' + label});
-        gtag('event', kind === 'lead' ? 'generate_lead' : 'contact', {method: kind});
+        gtag('event', kind === 'lead' ? 'generate_lead' : (kind === 'call' ? 'click_call' : 'click_whatsapp'), {event_category: 'deepotsav_package', method: kind});
       }
       if (window.fbq) fbq('track', kind === 'lead' ? 'Lead' : 'Contact', {content_name: kind});
     } catch(e){}

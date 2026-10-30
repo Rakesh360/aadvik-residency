@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C7VJS6GPWL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C7VJS6GPWL');
+  gtag('config', 'AW-10949316876');
+</script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
@@ -1024,5 +1033,21 @@
   }
 </script>
 
+<script>
+/* Google Ads / GA4 click tracking: calls and WhatsApp */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href]'); if(!a||!window.gtag) return;
+  var h=a.getAttribute('href')||'';
+  try{
+    if(h.indexOf('tel:')===0){
+      gtag('event','conversion',{send_to:'AW-10949316876/NtY8CJjOydgYEIyiheUo'});
+      gtag('event','click_call',{event_category:'main_site',method:'call'});
+    } else if(h.indexOf('wa.me')>-1){
+      gtag('event','conversion',{send_to:'AW-10949316876/NtY8CJjOydgYEIyiheUo'});
+      gtag('event','click_whatsapp',{event_category:'main_site',method:'whatsapp'});
+    }
+  }catch(err){}
+});
+</script>
 </body>
 </html>
